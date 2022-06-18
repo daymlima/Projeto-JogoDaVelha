@@ -6,11 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        body{
+            background-color: blueviolet;
+        }
         .box{
-            width: 100px;
-            height: 100px;
-            display: inline-block;
-            border: 1px solid black;
+            width: 80px;
+            height: 80px;
+            background-color: violet;
+            font-size: 60px;
+            margin: 5px;
+            text-align: center;
+            font-family: serif;
+            cursor: pointer;
+            
         }
         .main{
            display: flex;
@@ -20,9 +28,42 @@
            width: 316px;
            margin: auto;
         }
+        h1{
+            text-align: center;
+            color: white;
+            font-family: serif;
+            padding-top: 20px;
+            font-size: 70px;
+        }
+        p{
+            color: white;
+            text-align: center;
+            font-family: serif;
+            font-size: 20px;
+        }
+
+        .btn{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 150px;
+            height: 30px;
+            margin: auto;
+            margin-top: 20px;
+            border: none;
+            border-radius: 10px ;
+            font-family: serif;
+            font-size: 20px;
+            cursor: pointer;
+            color: rgb(171, 65, 171);
+
+        }
     </style>
 </head>
 <body>
+    <div>
+        <h1>Jogo da Velha</h1>
+        <p>Jogador 1: X  | Jogador 2: O</p>
     <section class="main">
         <div class="box"></div>
         <div class="box"></div>
@@ -34,6 +75,11 @@
         <div class="box"></div>
         <div class="box"></div> 
     </section>
+    </div>
+
+    <div class="Buttons" >
+        <button class="btn" >Jogar outra vez!</button>
+    </div>
    <script>
 
     let boxes = document.getElementsByClassName('box')
@@ -41,6 +87,7 @@
 
     function changePlayer(){
         if(jogadorAtual === 'x'){
+            
             jogadorAtual ='o'
         }else{
             jogadorAtual = 'x'
@@ -53,6 +100,7 @@
             function markBox(){
                    if(element.innerHTML === ''){
                     if(jogadorAtual === 'x'){
+                        element.style.color = 'red'
                         element.innerHTML = 'x'
                     }else{
                         element.innerHTML = 'o'
