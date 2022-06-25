@@ -21,12 +21,12 @@
             
         }
         .main{
-           display: flex;
-           flex-wrap: wrap;
-           justify-content: center;
-           align-items: center;
-           width: 316px;
-           margin: auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            width: 316px;
+            margin: auto;
         }
         h1{
             text-align: center;
@@ -110,6 +110,20 @@
                 }
 
         element.addEventListener('click', markBox)
+    }
+    
+    let map = ['','','','','','','','','',]
+
+    function marcacaixa (position, value){
+        map[position] = value
+    }
+    function checaPrimeiroCampeao (mark) {
+        if(map[0] === map[1] && map[1] === map[2]){
+            return true
+        }
+    }
+    function ckeckWinner (){
+        let hasWinnerOnFirstLine = checaPrimeiroCampeao()
     }
 
    </script>
