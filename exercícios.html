@@ -31,14 +31,19 @@
         h1{
             text-align: center;
             color: white;
-            font-family: serif;
+            font-family: sans-serif;
             padding-top: 20px;
             font-size: 70px;
         }
-        p{
-            color: white;
+        h2{
             text-align: center;
-            font-family: serif;
+            color: white;
+            font-family: sans-serif;
+        }
+        p{
+            text-align: center;
+            color: white;
+            font-family: sans-serif;
             font-size: 20px;
         }
 
@@ -56,30 +61,27 @@
             font-size: 20px;
             cursor: pointer;
             color: rgb(171, 65, 171);
-
         }
     </style>
 </head>
 <body>
     <div>
         <h1>Jogo da Velha</h1>
-        <p>Jogador 1: X  | Jogador 2: O</p>
+        <h2>Regra do jogo:</h2>
+        <p>Cada jogador deve escolher uma letra para jogar <br> e ambas devem ser diferentes.</p>
     <section class="main">
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div> 
+            <input class="box" type="text" id="cel1" maxlength="1" onkeypress="window.compara()">
+            <input class="box" type="text" id="cel2" maxlength="1" onkeypress="window.compara()">
+            <input class="box" type="text" id="cel3" maxlength="1" onkeypress="window.compara()">
+            <input class="box" type="text" id="cel4" maxlength="1" onkeypress="window.compara()">
+            <input class="box" type="text" id="cel5" maxlength="1" onkeypress="window.compara()">
+            <input class="box" type="text" id="cel6" maxlength="1" onkeypress="window.compara()">
+            <input class="box" type="text" id="cel7" maxlength="1" onkeypress="window.compara()">
+            <input class="box" type="text" id="cel8" maxlength="1" onkeypress="window.compara()">
+            <input class="box" type="text" id="cel9" maxlength="1" onkeypress="window.compara()">
     </section>
     </div>
 
-    <div class="Buttons" >
-        <button class="btn" >Jogar outra vez!</button>
-    </div>
    <script>
 
     let boxes = document.getElementsByClassName('box')
@@ -87,45 +89,97 @@
 
     function changePlayer(){
         if(jogadorAtual === 'x'){
-            
             jogadorAtual ='o'
         }else{
             jogadorAtual = 'x'
         }
     }
-
     for (let i = 0; i < boxes.length; i++) {
         const element = boxes[i];
-            
             function markBox(){
                    if(element.innerHTML === ''){
                     if(jogadorAtual === 'x'){
                         element.style.color = 'red'
                         element.innerHTML = 'x'
+                        document.getElementById('cel1').value
                     }else{
                         element.innerHTML = 'o'
                     }
                     changePlayer()
                    }
                 }
-
         element.addEventListener('click', markBox)
     }
     
-    let map = ['','','','','','','','','',]
+    function compara(){
+      setTimeout( ()=> 
+      {
+            var cel1 = document.getElementById("cel1").value;
+            var cel2 = document.getElementById("cel2").value;   
+            var cel3 = document.getElementById("cel3").value;
+            var cel4 = document.getElementById("cel4").value;
+            var cel5 = document.getElementById("cel5").value;
+            var cel6 = document.getElementById("cel6").value;
+            var cel7 = document.getElementById("cel7").value;
+            var cel8 = document.getElementById("cel8").value;
+            var cel9 = document.getElementById("cel9").value;     
 
-    function marcacaixa (position, value){
-        map[position] = value
-    }
-    function checaPrimeiroCampeao (mark) {
-        if(map[0] === map[1] && map[1] === map[2]){
-            return true
-        }
-    }
-    function ckeckWinner (){
-        let hasWinnerOnFirstLine = checaPrimeiroCampeao()
-    }
 
+                if(cel1 !="" && cel1 == cel2 && cel2 == cel3)
+                {
+                    window.alert(cel3 + " é o VENCEDOR" );
+                    location.reload();
+                }
+                else if(cel4 !="" && cel4 == cel5 && cel5 == cel6)
+                {
+                    window.alert(cel6 + " é o VENCEDOR" );
+                    location.reload();
+                }
+                else if(cel7 !="" && cel7 == cel8 && cel8 == cel9)
+                {
+                    window.alert(cel9 + " é o VENCEDOR" );
+                    location.reload();
+                }
+                else if(cel1 !="" && cel1 == cel4 && cel4 == cel7)
+                {
+                    window.alert(cel7 + " é o VENCEDOR" );
+                    location.reload();
+                }
+                else if(cel2 !="" && cel2 == cel5 && cel5 == cel8)
+                {
+                    window.alert(cel8 + " é o VENCEDOR" );
+                    location.reload();
+                }
+                else if(cel3 !="" && cel3 == cel6 && cel6 == cel9)
+                {
+                    window.alert(cel9 + " é o VENCEDOR" );
+                    location.reload();
+                }
+                else if(cel1 !="" && cel1 == cel5 && cel5 == cel9)
+                {
+                    window.alert(cel9 + " é o VENCEDOR" );
+                    location.reload();
+                }
+                else if(cel3 !="" && cel3 == cel5 && cel5 == cel7)
+                {
+                    window.alert(cel7 + " é o VENCEDOR" );
+                    location.reload();
+                }
+                else if (cel1 !="" &&
+                         cel2 !="" &&
+                         cel3 !="" &&
+                         cel4 !="" &&
+                         cel5 !="" &&
+                         cel6 !="" &&
+                         cel7 !="" &&
+                         cel8 !="" &&
+                         cel9 !="" )
+                         {
+                            window.alert("FIM DO JOGO : Deu Velha");
+                            location.reload();
+                        }
+            }, 50);
+    }
    </script>
 </body>
 </html>
